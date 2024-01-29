@@ -1,0 +1,32 @@
+
+{% extends 'food/base.html' %}
+
+
+{% block body %}
+
+<!-- <h3 style="color: rgb(161, 104, 213);">  {{ item.item_name }} </h3>
+<h3>  {{ item.item_desc }} </h3>
+<h3>  {{ item.item_price }} </h3> -->
+
+
+
+<div class="row" >
+    <div class="col-md-2 offset-md-1">
+    
+            <img src= "{{ item.item_image }}" class="card"  height="250px" width="290px" >  
+        
+    </div>
+
+    <div class="col-md-4 offset-md-1">
+        <h1 style="color: rgb(161, 104, 213);">  {{ item.item_name }} </h1>
+        <h2 style="font-style: italic; font-size: 1rem; text-align: justify; " >  {{ item.item_desc }} </h2>
+        <h3>  {{ item.item_price }} </h3>
+    </div>
+
+    <div class="col-md-3 offset-md-1">
+        <a href=" {% url 'food:update_item' item.id %} " class="btn btn-gradient-success" style="width: 80px;">Edit</a>
+        <a href="{% url 'food:delete_item' item.id %}" class="btn btn-info" style="width: 80px;">Delete</a>
+        <a href="{% url 'food:index' %}" class="btn btn-dark" style="width: 80px;">Back</a>
+    </div>
+</div>
+{% endblock %}
